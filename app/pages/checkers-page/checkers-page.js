@@ -3,10 +3,8 @@ import CheckerBoard from './checker-board/checker-board';
 
 export default function CheckersPage() {
     return (
-        <div>
-            <h1>Checkers</h1>
-
+        <div className="checker-board-page">
             <CheckerBoard/>
         </div>
-    )
+    );
 }

@@ -23,6 +23,9 @@ export default class CheckerBoardTile extends Component {
                         className={`checker fa fa-dot-circle ${this.state.props.configuration.good ? 'good' : 'bad'}`}>
                     </div>
                 }
+                {this.state.props.configuration.isValidMove && 
+                    <span>valid move</span>
+                }
             </div>
         )
     }

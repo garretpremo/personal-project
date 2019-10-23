@@ -42,8 +42,9 @@ export default class CheckerBoard extends Component {
                     index: index,
                     currentPosition: index,
                     hasPiece: false,
-                    good: index < width * height / 2
-                }
+                    good: index < width * height / 2,
+                    isValidMove: false,
+                };
 
                 if (evenRow) {
                     boardTile.even = index % 2 === 0;
@@ -69,13 +70,23 @@ export default class CheckerBoard extends Component {
         const tile = { ...this.state.boardMap[`${index}`] };
         const rowIndex = index % 8;
         const validMoves = [];
-        
-        if (rowIndex !== 0) {
-            validMoves.push(index - 7);
-        } 
+
+        const good = tile.good;
         
         if (rowIndex !== 7) {
-            validMoves.push(index - 9);
+            if (good) {
+                validMoves.push(index + 9);
+            } else {
+                validMoves.push(index - 7);
+            }
+        } 
+        
+        if (rowIndex !== 0) {
+            if (good) {
+                validMoves.push(index + 7);
+            } else {
+                validMoves.push(index - 9);
+            }
         }
 
         this.setState({
@@ -84,9 +95,22 @@ export default class CheckerBoard extends Component {
     }
 
     render() {
+        const boardElements = [];
+
+        Object.keys(this.state.boardMap).forEach((boardMapKey, index) => {
+            const boardTile = this.state.boardMap[boardMapKey];
+
+            if (this.state.validMoves.includes(index)) {
+                boardTile.isValidMove = true;
+            } else {
+                boardTile.isValidMove = false;
+            }
+
+            boardElements.push(<CheckerBoardTile key={index} configuration={this.state.boardMap[`${index}`]} handleClick={this.handleTileClick}/>);
+        });
         return (
             <div className="board">
-                {this.state.boardElements}
+                {boardElements}
             </div>
         );
     }
