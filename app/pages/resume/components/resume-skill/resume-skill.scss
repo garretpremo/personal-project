@@ -1,0 +1,57 @@
+$animation-length: 8000ms;
+
+.skill {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    > .stars {
+        display: flex;
+        width: 90px;
+        justify-content: space-evenly;
+
+        > .full-star, > .half-star {
+            animation: $animation-length;
+            animation-name: pulsate;
+            animation-iteration-count: infinite;
+
+            &.delay-0 {
+                animation-delay: 500ms;
+            }
+    
+            &.delay-1 {
+                animation-delay: 750ms;
+            }
+    
+            &.delay-2 {
+                animation-delay: 1000ms;
+            }
+    
+            &.delay-3 {
+                animation-delay: 1250ms;
+            }
+    
+            &.delay-4 {
+                animation-delay: 1500ms;
+            }
+        }
+    } 
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+    }
+    4% {
+        transform: scale(1);
+    }
+    6% {
+        transform: scale(1.25);
+    }
+    10% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

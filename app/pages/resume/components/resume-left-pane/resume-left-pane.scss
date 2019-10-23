@@ -1,0 +1,32 @@
+.resume-left-pane {
+    display: flex;
+    flex-direction: column;
+    font-size: 88%;
+    overflow: hidden;
+    
+    > div {
+        padding: 1em 1.5em;
+        overflow: auto;
+
+        > h2 {
+            margin: .6em 0 .3em;
+        }
+
+        > p {
+            margin: .3em 0;
+        }
+    
+        > .company-name-and-date {
+            display: flex;
+            justify-content: space-between;
+    
+            > h4 {
+                margin: 0;
+            }
+        }
+    
+        > ul {
+            margin: 0 0 .5em;
+        }
+    }
+}

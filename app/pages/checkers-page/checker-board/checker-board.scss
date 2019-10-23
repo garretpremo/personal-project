@@ -1,0 +1,34 @@
+.board {
+    border: 4em solid lightblue;
+    display: grid;
+    grid-template-columns: 54px 54px 54px 54px 54px 54px 54px 54px;
+    grid-template-rows: 54px 54px 54px 54px 54px 54px 54px 54px;
+    background-color: lightblue;
+    justify-content: center;
+}
+
+.tile {
+    background-color: white;
+
+    &.even {
+        background-color: black;
+        color: white;
+    }
+
+    > .checker {
+        &.good {
+            color: blue;
+        }
+
+        &.bad {
+            color: red;
+        }
+
+        width: 54px;
+        height: 54px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+    }
+}
